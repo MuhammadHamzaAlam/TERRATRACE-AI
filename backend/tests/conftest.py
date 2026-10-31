@@ -7,7 +7,7 @@ from pathlib import Path
 _TMP = Path(tempfile.mkdtemp(prefix="tt_test_"))
 os.environ.update(DATABASE_URL=f"sqlite:///{_TMP/'test.db'}", STORAGE_DIR=str(_TMP / "storage"), MODELS_DIR=str(_TMP / "models"),
                   REPORTS_DIR=str(_TMP / "reports"), LEVIR_ROOT=str(_TMP / "levir"), RATE_LIMIT_PER_MINUTE="100000",
-                  OLLAMA_MODEL="test-model", XAI_API_KEY="", CDSE_USERNAME="", CDSE_PASSWORD="")
+                  OLLAMA_MODEL="test-model", OLLAMA_BASE_URL="http://127.0.0.1:9", XAI_API_KEY="", CDSE_USERNAME="", CDSE_PASSWORD="")
 
 import cv2
 import numpy as np
