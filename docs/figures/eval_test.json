@@ -1,0 +1,18 @@
+{
+  "split": "test",
+  "n_images": 128,
+  "threshold": 0.5,
+  "precision": 0.8336989152396653,
+  "recall": 0.8810162453469181,
+  "f1": 0.8567047221704526,
+  "iou": 0.7493293636888236,
+  "accuracy": 0.9849860146641731,
+  "confusion_matrix": {
+    "tp": 6023864,
+    "fp": 1201603,
+    "fn": 813540,
+    "tn": 126178721
+  },
+  "checkpoint": "../models/siamese_unet/best.pt",
+  "note": "Pixel-level micro-averaged metrics over full tiled images; LEVIR-CD domain only."
+}
