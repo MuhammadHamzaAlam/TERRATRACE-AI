@@ -1,0 +1,44 @@
+{
+  "source": "USDA NAIP via Microsoft Planetary Computer STAC",
+  "license": "Public domain (USDA FSA)",
+  "center_lonlat": [
+    -97.845,
+    30.585
+  ],
+  "size_m": 640.0,
+  "items": [
+    {
+      "year": 2018,
+      "item": "tx_m_3009726_nw_14_060_20181103_20190426",
+      "acquired": "2018-11-03",
+      "gsd_m": 0.6,
+      "file": "naip_2018.tif",
+      "size": [
+        1067,
+        1067
+      ]
+    },
+    {
+      "year": 2020,
+      "item": "tx_m_3009726_nw_14_060_20200608",
+      "acquired": "2020-06-08",
+      "gsd_m": 0.6,
+      "file": "naip_2020.tif",
+      "size": [
+        1067,
+        1067
+      ]
+    },
+    {
+      "year": 2022,
+      "item": "tx_m_3009726_nw_14_060_20220611",
+      "acquired": "2022-06-11",
+      "gsd_m": 0.6,
+      "file": "naip_2022.tif",
+      "size": [
+        1067,
+        1067
+      ]
+    }
+  ]
+}
