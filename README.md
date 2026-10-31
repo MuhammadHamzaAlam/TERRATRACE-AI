@@ -29,12 +29,14 @@ More: [overview](docs/screenshots/01-overview.png) · [temporal](docs/screenshot
 | Sentinel-2: catalogue search | **Implemented, verified live** (no credentials) |
 | Sentinel-2: download + cloud mask + import | **Implemented, tested on synthetic rasters only — not run against a real download** (needs CDSE credentials) |
 | PDF / CSV / GeoJSON reports | **Implemented, tested** |
-| Docker / Compose / CI workflows | **Written; not executed** (no Docker daemon was used in this build; CI has not run) |
+| CI (GitHub Actions: backend tests, frontend typecheck/test/build, Docker image builds) | **Passing** on every push to `main`, latest verified at `2186bfb` |
+| Docker images (`backend/Dockerfile`, `frontend/Dockerfile`) | **Built and run**: containers started, model reported available, NAIP demo reproduced the host results (9/12/21 events), PDF + GeoJSON exports and nginx→API proxying worked. Running them found and fixed a missing-library crash (`libexpat1`, `libgfortran5`) |
+| `docker-compose.yml` | **Written; `docker compose up` itself not run** (the two images were run by hand with equivalent settings). Container→host Ollama (`host.docker.internal`) **not verified**: it requires Ollama to listen beyond loopback, which was not tested |
 | Cloud deployment | **Not attempted** (no hosting authorisation) |
 | Authentication | **Not implemented** (documented limitation) |
 
 ### Test results
-* Backend: `cd backend && python -m pytest` → **52 passed** (ML, geospatial, API workflow, multi-date, review, LLM/mock providers, grounding, injection, project isolation).
+* Backend: `cd backend && python -m pytest` → **52 passed** (also green in GitHub Actions) (ML, geospatial, API workflow, multi-date, review, LLM/mock providers, grounding, injection, project isolation).
 * Frontend: `npm run typecheck && npm test && npm run build` → typecheck clean, **10 passed**, production build OK.
 * Real end-to-end run on the bundled NAIP sample (Leander TX, 2018-11-03 / 2020-06-08 / 2022-06-11, 0.6 m, georeferenced): 3 analyses completed in ≈ 15 s total on CPU
   (9, 12 and 21 candidate events; 30 location tracks, 12 recurring); all pages rendered without console errors (Playwright).
@@ -88,7 +90,7 @@ docker compose up --build                                # UI :8080, API :8000
 Stack: React 18 · TypeScript · Vite · Tailwind · Leaflet/React-Leaflet · Recharts · FastAPI · SQLAlchemy/SQLite · PyTorch · Rasterio/GeoPandas/Shapely/PyProj · scikit-learn (DBSCAN) · ReportLab · Ollama / xAI.
 
 ## Known limitations & not done
-No authentication/authorisation on REST endpoints · Docker and CI untested · no cloud deployment · Grok and real Sentinel-2 downloads untested · building-change only (no new-vs-removed or other change classes) ·
+No authentication/authorisation on REST endpoints · `docker compose up` and container→host Ollama untested · no cloud deployment · Grok and real Sentinel-2 downloads untested · building-change only (no new-vs-removed or other change classes) ·
 greedy temporal matching · ONNX export / multi-checkpoint comparison / Alembic migrations not implemented (schema created via `create_all`) · assistant quality depends on the chosen model · Esri basemap tiles are third-party (check their terms).
 
 ## Attribution & licence
