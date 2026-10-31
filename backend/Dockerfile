@@ -1,7 +1,7 @@
 FROM python:3.12-slim
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1
-# rasterio/geopandas/pyproj ship manylinux wheels (GDAL/PROJ bundled); libgl for opencv-headless is not needed.
-RUN apt-get update && apt-get install -y --no-install-recommends libglib2.0-0 curl && rm -rf /var/lib/apt/lists/*
+# rasterio/opencv wheels bundle GDAL/PROJ but need libexpat (rasterio) and libgfortran (scipy/sklearn deps) from the OS.
+RUN apt-get update && apt-get install -y --no-install-recommends libglib2.0-0 libexpat1 libgfortran5 curl && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY backend/requirements.txt .
 # CPU-only PyTorch keeps the image small; for GPU use the default PyPI wheels instead (docs/deployment.md)
