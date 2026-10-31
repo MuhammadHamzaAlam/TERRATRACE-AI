@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { height: 100%; }
+body { @apply bg-ink-900 text-slate2-100 font-sans antialiased; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { @apply bg-ink-600 rounded; }
+::-webkit-scrollbar-track { @apply bg-ink-850; }
+.leaflet-container { background: #0b1422; font-family: inherit; }
+.leaflet-container a { color: #3fb8af; }
+.leaflet-control-layers, .leaflet-bar a { background: #142238 !important; color: #e6ebf2 !important; border-color: #2a4163 !important; }
+:focus-visible { outline: 2px solid #3fb8af; outline-offset: 2px; }
+
+@layer components {
+  .card { @apply rounded-lg border border-ink-700 bg-ink-850; }
+  .btn { @apply inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-signal text-ink-950 hover:bg-signal-dim hover:text-white; }
+  .btn-ghost { @apply btn border border-ink-600 text-slate2-100 hover:bg-ink-700; }
+  .btn-danger { @apply btn border border-rose2/50 text-rose2 hover:bg-rose2/10; }
+  .input { @apply w-full rounded-md border border-ink-600 bg-ink-900 px-2.5 py-1.5 text-sm text-slate2-100 placeholder:text-slate2-500; }
+  .label { @apply mb-1 block text-xs font-medium uppercase tracking-wide text-slate2-400; }
+  .th { @apply px-3 py-2 text-left text-xs font-medium uppercase tracking-wide text-slate2-400; }
+  .td { @apply px-3 py-2 text-sm; }
+}
