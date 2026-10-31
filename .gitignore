@@ -1,0 +1,31 @@
+# secrets / local config
+.env
+.env.*
+!.env.example
+data/runtime_settings.json
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.egg-info/
+# node
+node_modules/
+frontend/dist/
+# data (datasets are NOT redistributed; only tiny public-domain samples are tracked)
+data/raw/
+data/processed/
+data/storage/
+data/*.db
+data/*.db-*
+!data/samples/
+# models & outputs (large artifacts are published as release assets / external storage)
+models/**/*.pt
+models/**/*.onnx
+reports/*.pdf
+!models/.gitkeep
+!models/siamese_unet/history.json
+!models/siamese_unet/eval/
+models/siamese_unet/train.log
+models/siamese_unet/eval/predictions/
+.DS_Store
