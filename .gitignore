@@ -21,6 +21,7 @@ data/*.db-*
 !data/samples/
 # models & outputs (large artifacts are published as release assets / external storage)
 models/**/*.pt
+!models/siamese_unet/best.pt
 models/**/*.onnx
 reports/*.pdf
 !models/.gitkeep

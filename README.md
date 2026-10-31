@@ -78,7 +78,7 @@ ollama serve & ollama pull qwen3:8b && echo 'OLLAMA_MODEL=qwen3:8b' >> .env
 docker compose up --build                                # UI :8080, API :8000
 ```
 
-**Model checkpoint** (`models/siamese_unet/best.pt`, 62 MB) is not committed; it is attached to the GitHub release if publication succeeded, otherwise reproduce with the training command above.
+**Model checkpoint**: `models/siamese_unet/best.pt` (62 MB, the baseline evaluated above) is committed directly to the repository. `last.pt` (optimizer state) is not. LEVIR-CD-domain only; reproduce with the training command above.
 
 ## Architecture & docs
 
